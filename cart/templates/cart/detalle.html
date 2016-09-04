@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+{% block content%}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Carrito</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Tu pinche carrito</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Quitar</th>
+          <th>Precio Unitario</th>
+          <th>SubTotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for item in cart%}
+          {%with producto=item.producto%}
+          <tr>
+            <td>
+              <img src="">
+            </td>
+            <td>
+              {{producto.nombre}}
+            </td>
+            <td>
+              {{item.quantity}}
+            </td>
+            <td>
+              <a href="{%url 'cart:cart_remove' producto.id%}">Quitar</a>
+            </td>
+            <td>
+              $ {{item.price}}
+            </td>
+            <td>
+              $ {{item.total_price}}
+            </td>
+          </tr>
+          {%endwith%}
+        {%endfor%}
+        <tr>
+          <td>Total</td>
+          <td colspan="4"></td>
+          <td>$ {{cart.get_precio_total}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>
+{% endblock content%}

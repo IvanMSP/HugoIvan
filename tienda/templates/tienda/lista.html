@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<h1>Articulos en venta</h1>
+
+<ul>
+	{%for producto in productos%}
+	<li><a href="{%url 'tienda:detalle' producto.id%}">
+		{{producto.nombre}}
+	</a></li>
+	{%empty%}
+	<h2>No hay productos para mostrar</h2>
+	{%endfor%}
+</ul>
+{% endblock content%}

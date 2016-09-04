@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from main import urls as UrlsMain
+from tienda import urls as tiendaUrls
+from cart import urls as cartUrls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include(UrlsMain,namespace="home")),
+    url(r'^tienda/', include(tiendaUrls, namespace="tienda")),
+    url(r'^cart/', include(cartUrls, namespace="cart")),
 ]
