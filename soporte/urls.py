@@ -18,10 +18,17 @@ from django.contrib import admin
 from main import urls as UrlsMain
 from tienda import urls as tiendaUrls
 from cart import urls as cartUrls
+from django.views.static import serve
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include(UrlsMain,namespace="home")),
     url(r'^tienda/', include(tiendaUrls, namespace="tienda")),
     url(r'^cart/', include(cartUrls, namespace="cart")),
+    url(
+            regex=r'^media/(?P<path>.*)$',
+            view=serve,
+            kwargs ={'document_root':settings.MEDIA_ROOT}
+        ),
 ]

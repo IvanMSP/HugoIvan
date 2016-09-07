@@ -1,15 +1,16 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} {% block content%}
+<div id="wrapper">
+	<h1 class="center">Articulos en venta</h1>
 
-{% block content%}
-<h1>Articulos en venta</h1>
-
-<ul>
-	{%for producto in productos%}
-	<li><a href="{%url 'tienda:detalle' producto.id%}">
-		{{producto.nombre}}
-	</a></li>
-	{%empty%}
-	<h2>No hay productos para mostrar</h2>
-	{%endfor%}
-</ul>
+	<ul>
+		{%for producto in productos%}
+		<li>
+			<a href="{%url 'tienda:detalle' producto.id%}">
+				<h2>{{producto.nombre}}</h2>
+			</a>
+		</li>
+		{%empty%}
+		<h2>No hay productos para mostrar</h2> {%endfor%}
+	</ul>
+</div>
 {% endblock content%}
