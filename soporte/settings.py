@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'soporte.wsgi.application'
+#WSGI_APPLICATION = 'soporte.wsgi.application'
 
 
 # Database
@@ -83,10 +83,10 @@ DATABASES = {
     }
 }
 
-#Update database configuration with $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+#Update database configuration with $DATABASE_URL. para heroku
+#import dj_database_url
+#db_from_env = dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -127,8 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
-STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = FalseTATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 CART_SESSIONS_ID = 'cart'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
