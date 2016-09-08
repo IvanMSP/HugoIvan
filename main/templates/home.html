@@ -1,17 +1,42 @@
 {% extends 'base.html'%} 
 {% block content%}
-<h1 class="blue-text text-lighten-5">Bienvenido a Soporte Técnico Pachuca <br>
-		Servicio las 24 hrs</h1>
 
- <div class="carousel carousel-slider">
-    <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/800/400/food/1"></a>
-    <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/800/400/food/2"></a>
-    <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/800/400/food/3"></a>
-    <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/800/400/food/4"></a>
-  </div>
-{%endblock%}
+
+
+	<div class="slider fullscreen">
+	    <ul class="slides">
+	      <li>
+		        <img src="/media/tienda/slider/s1.jpg"> <!-- random image -->
+		        <div class="caption left-align">
+			          <h2 class="black-text">¡Aprende!</h2>
+			          <h5 class="black-text">¡Desarrolla tus skills como developer!</h5>
+		        </div>
+	      </li>
+	      <li>
+		        <img src="/media/tienda/slider/s1.jpg"> <!-- random image -->
+		        <div class="caption left-align">
+			          <h2 class="white-text">¡Crear!</h2>
+			          <h5 class="white-text">Es lo de hoy</h5>
+		        </div>
+		  </li>
+		  <li>
+			   	 <img src="/media/tienda/slider/st.jpg"> <!-- random image -->
+		      	 <div class="caption left-align">
+			          <h2 class="black-text">¡Trabaja en equipo!</h2>
+			          <h5 class="black-text">Comparte conocimientos</h5>
+		        </div>
+		  </li>
+   		</ul>
+	</div>			
+
+
+
+{%endblock content%}
 {%block scripts%}
-<script>
-  $('.carousel.carousel-slider').carousel({full_width: true});
-</script>
+	<script>
+		$(document).ready(function(){
+    		$('.slider').slider({full_width: true, indicators:true});
+
+		});
+	</script>
 {%endblock scripts%}
