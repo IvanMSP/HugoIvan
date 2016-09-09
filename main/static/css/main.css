@@ -9,7 +9,7 @@ body {
     background-image: url(st.jpg);
 }
 
-h1, h2, h3 {
+h1, h2, h3, th, td {
     color: #FFFFFF;
 }
 

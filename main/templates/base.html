@@ -25,16 +25,18 @@
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
-
 	<nav class="blue darken-4">
 		<div class="nav-wrapper">
-			<a href="#" class="brand-logo">Soporte Técnico en computadoras</a>
+			<a href="{%url 'home:home'%}" class="brand-logo">Soporte Técnico en computadoras</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="{%url 'home:home'%}">Inicio</a></li>
 				<li><a href="#">Acerca</a></li>
-				<li><a href="#">Iniciar sesión</a></li>
+				<li><a href="#">Iniciar Sesión</a></li>
 				<li><a href="#">Registrate</a></li>
 				<li><a href="{%url 'tienda:tienda'%}">Tienda</a></li>
+				<li><a href="{%url 'cart:cart_detail'%}">{%with total_items=cart|length%} {%if cart|length > 0%} Tu carrito:
+				{{total_items}} item {{total_items|pluralize}}, $ {{cart.get_precio_total}}
+			</a>{%else%} Tu carrito está vacio {%endif%}{%endwith%}</li>
 			</ul>
 		</div>
 	</nav>
