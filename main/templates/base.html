@@ -34,9 +34,11 @@
 				<li><a href="#">Iniciar Sesión</a></li>
 				<li><a href="#">Registrate</a></li>
 				<li><a href="{%url 'tienda:tienda'%}">Tienda</a></li>
-				<li><a href="{%url 'cart:cart_detail'%}">{%with total_items=cart|length%} {%if cart|length > 0%} Tu carrito:
-				{{total_items}} item {{total_items|pluralize}}, $ {{cart.get_precio_total}}
-			</a>{%else%} Tu carrito está vacio {%endif%}{%endwith%}</li>
+				<li><a href="{%url 'cart:cart_detail'%}">
+				{%with total_items=cart|length%}<img src="/media/tienda/carrito.png {{producto.imegen}}" height="20">
+				{{total_items}} {%if total_items > 0%}
+			 	{{total_items|pluralize}}
+			</a>{%else%} {{tota_items}} {%endif%}{%endwith%}</li>
 			</ul>
 		</div>
 	</nav>
