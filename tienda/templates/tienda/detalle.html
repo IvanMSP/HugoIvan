@@ -1,7 +1,7 @@
 {% extends 'base.html'%}{%block titulo%}{{producto.nombre}}{%endblock titulo%}{% block content%}
 <div id="wrapper">
 	<br></br>
-	<h2><img src="/media/{{producto.imagen}}" height="100"></h2>
+	<div class="product-images"><a><img src="/media/{{producto.imagen}}" height="175"></a></div>
 	<h5>{{producto.nombre}}</h5>
 	<h4> $ {{producto.precio}}</h4>
 	<form action="{%url 'cart:cart_add' producto.id%}" method="post">
