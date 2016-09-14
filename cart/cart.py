@@ -8,7 +8,7 @@ class Cart(object):
         self.session = request.session
         self.cart = self.session.get(settings.CART_SESSIONS_ID)
         if not self.cart:
-            #Guardar el carro vacio en la session
+            #Guardar el carro vacio en la sessio
             self.cart =self.session[settings.CART_SESSIONS_ID] = {}
 
     def add(self, producto, quantity=1, update_quantity=False):
