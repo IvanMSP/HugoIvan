@@ -1,4 +1,4 @@
-{% extends 'base.html'%} {% block content%}
+{% extends 'base.html'%}{%block titulo%}Tienda{%endblock titulo%} {% block content%}
 
 <div id="wrapper">
 	<br></br>
@@ -6,11 +6,15 @@
 
 	<ul>
 		{%for producto in productos%}
-		<li>
+		<div class="tabla">
 			<a href="{%url 'tienda:detalle' producto.id%}">
 				<h2>{{producto.nombre}}</h2>
 			</a>
-		</li>
+			<form action="{%url 'cart:cart_add' producto.id%}" method="post">
+				{%csrf_token%} {{form.as_p}}
+				<input type="submit" value="Agregar al Carrito"></input>
+			</form>
+		</div>
 		{%empty%}
 		<h2>No hay productos para mostrar</h2> {%endfor%}
 	</ul>
