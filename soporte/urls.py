@@ -18,6 +18,7 @@ from django.contrib import admin
 from main import urls as UrlsMain
 from tienda import urls as tiendaUrls
 from cart import urls as cartUrls
+from accounts import urls as accUrls
 from django.views.static import serve
 from django.conf import settings
 
@@ -26,6 +27,7 @@ urlpatterns = [
     url(r'^',include(UrlsMain,namespace="home")),
     url(r'^tienda/', include(tiendaUrls, namespace="tienda")),
     url(r'^cart/', include(cartUrls, namespace="cart")),
+    url(r'^accounts/', include(accUrls)),
     url(
             regex=r'^media/(?P<path>.*)$',
             view=serve,

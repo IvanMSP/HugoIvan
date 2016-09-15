@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+
+{%block estilos%}
+.fotito{
+	border:2px solid white;
+	border-radius:50%;
+	width:100px;
+	height:100px;
+}
+body{
+	background:grey;
+}
+{%endblock estilos%}
+
+{%block content%}
+	<h1>Bienvenido a tu perfil {{request.user.username}}</h1>
+	<a href="{%url 'logout'%}">
+	<button>Cerrar tu sesión</button>
+	</a>
+<form action="." method="post" enctype='multipart/form-data'>
+	{%csrf_token%}
+	{{userform.as_p}}
+	{{profileform.as_p}}
+	<input style="background:red;padding:10px;" type="submit" value="Guardar">
+</form>
+
+{%endblock content%}
+
+{%block scripts%}
+ <script>$(document).ready(function() {
+    $('select').material_select();
+  });
+ </script>
+ {%endblock scripts%}

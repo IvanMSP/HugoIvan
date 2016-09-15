@@ -6,7 +6,7 @@ html, body {
 body {
     margin: 0;
     padding: 0;
-    background-image: url(st.jpg);
+    /*background-image: url(st.jpg);*/
 }
 
 h1, h2, h3 {
