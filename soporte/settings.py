@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'main',
     'tienda',
     'cart',
+    'orders',
+    'paypal.standard.ipn',
+    'payment',
 ]
 
 MIDDLEWARE = [
