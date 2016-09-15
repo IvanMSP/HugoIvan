@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'paypal.standard.ipn',
     'payment',
     'social.apps.django_app.default',
+
 ]
 
 MIDDLEWARE = [
@@ -123,6 +125,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.authentication.EmailAuthBackend',
+    'accounts.authentication.TelAuthBackend',
+    )
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'

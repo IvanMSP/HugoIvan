@@ -19,6 +19,8 @@ from django.views.static import serve
 from django.contrib import admin
 from tienda import urls as tiendaUrls
 from cart import urls as cartUrls
+from accounts import urls as accUrls
+from django.conf import settings
 from orders import urls as orderUrls
 from paypal.standard.ipn import urls as paypalUrls
 from payment import urls as paymentUrls
@@ -34,6 +36,7 @@ urlpatterns = [
     url(r'^',include(UrlsMain,namespace="home")),
     url(r'^tienda/', include(tiendaUrls, namespace="tienda")),
     url(r'^cart/', include(cartUrls, namespace="cart")),
+    url(r'^accounts/', include(accUrls)),
     url(
             regex=r'^media/(?P<path>.*)$',
             view=serve,
