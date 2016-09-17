@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Detalle perfil</title>
-</head>
-<body>
+{%extends 'base.html'%}
+{%block content%}
+<div id="wrapper" class="center">
 	<h2>Nombre de Usuario: {{profilee.username}}</h2>
 	<h2>Nombre: {{profilee.first_name}}</h2>
 	<h2>Apellidos: {{profilee.last_name}}</h2>
@@ -12,5 +8,5 @@
 	<h2>Telefono: {{detail.tel}}</h2>
 	<h2>Dirección: {{detail.direccion}}</h2>
 	<h2>Es de soporte: {{detail.is_soporte}}</h2>
-</body>
-</html>
+</div>
+{%endblock content%}
