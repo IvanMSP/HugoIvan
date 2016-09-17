@@ -53,7 +53,6 @@ class Registration(View):
 			perfil = Profile()
 			perfil.user = new_user
 			perfil.save()
-			# perfil = Profile.objects.create(user=new_user)
 			return redirect('profile')
 		else:
 			context = {
