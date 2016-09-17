@@ -90,15 +90,13 @@ DATABASES = {
     }
 }
 
-<<<<<<< HEAD
+
 #Update database configuration with $DATABASE_URL. para heroku
 #import dj_database_url
 #db_from_env = dj_database_url.config(conn_max_age=500)
 #DATABASES['default'].update(db_from_env)
 
 
-=======
->>>>>>> master
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
