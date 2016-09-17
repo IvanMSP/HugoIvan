@@ -11,8 +11,10 @@ class Agregar(View):
 		form = CartAddProductForm(request.POST)
 		if form.is_valid():
 			cd = form.cleaned_data
-			cart.add(producto=producto, quantity=cd['quantity'], update_quantity=cd['update'])
-		return redirect('cart:cart_detail')
+			cart.add(producto=producto,
+				quantity=cd['quantity'],
+				update_quantity=cd['update'])
+		return redirect('tienda:tienda')
 
 class Remove(View):
 	def get(self,request,producto_id):

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +41,11 @@ INSTALLED_APPS = [
     'main',
     'tienda',
     'cart',
+    'orders',
+    'paypal.standard.ipn',
+    'payment',
+    'social.apps.django_app.default',
+
 ]
 
 MIDDLEWARE = [
@@ -65,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -83,12 +90,15 @@ DATABASES = {
     }
 }
 
+<<<<<<< HEAD
 #Update database configuration with $DATABASE_URL. para heroku
 #import dj_database_url
 #db_from_env = dj_database_url.config(conn_max_age=500)
 #DATABASES['default'].update(db_from_env)
 
 
+=======
+>>>>>>> master
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
@@ -125,11 +135,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.authentication.EmailAuthBackend',
+    'accounts.authentication.TelAuthBackend',
+    )
+
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = FalseTATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-CART_SESSIONS_ID = 'cart'
+CART_SESSION_ID = 'cart'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+PAYPAL_RECEIVER_EMAIL = 'saul_watch_dogs@outlook.com'
+PAYPAL_TEST = True

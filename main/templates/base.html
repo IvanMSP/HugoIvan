@@ -28,35 +28,48 @@
 
 	<nav class="blue darken-4 navbar-fixed">
 		<div class="nav-wrapper">
-			<a href="#" class="brand-logo">Soporte Técnico en computadoras</a>
+			<a href="{%url 'home:home'%}" class="brand-logo">Soporte Técnico en computadoras</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="{%url 'home:home'%}">Inicio</a></li>
 				<li><a href="#">Acerca</a></li>
-				<li><a href="#">Iniciar sesión</a></li>
+				<li><a href="#">Iniciar Sesión</a></li>
 				<li><a href="#">Registrate</a></li>
 				<li><a href="{%url 'tienda:tienda'%}">Tienda</a></li>
+				<li><a href="{%url 'cart:cart_detail'%}">
+				{%with total_items=cart|length%}<img src="/media/tienda/carrito.png {{producto.imegen}}" height="20">
+				{{total_items}} {%if total_items > 0%}
+			 	{{total_items|pluralize}}
+			  {%else%} {{tota_items}} {%endif%}{%endwith%}</a></li>
 			</ul>
 		</div>
 	</nav>
 
+	{%block content%}
+	<nav class="black darken-4">
+		<ul id="nav-mobile" class="center hide-on-med-and-dow">
+			<li><a>Soporte las 24 horas</a></li>
+			<ul id="nav-mobile" class="right hide-on-med-and-dow">
+				<li><a>Llamanos 7711548189</a></li>
+			</ul>
+	</nav>
 	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-	    <a class="btn-floating btn-large red">
-	      <i class="large material-icons">mode_edit</i>
-	    </a>
-	    <ul>
-	      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-	      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-	      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-	      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-	    </ul>
-    </div>
+		<a class="btn-floating btn-large red">
+			<i class="large material-icons">mode_edit</i>
+		</a>
+		<ul>
+			<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+			<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+			<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+			<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+		</ul>
+	</div>
 
-	{%block content%} 
 
 	{%endblock content%}
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-	{%block scripts%} {%endblock scripts%}
+	 {%block scripts%} 
+	 
+	 {%endblock scripts%}
 </body>
 
 </html>
