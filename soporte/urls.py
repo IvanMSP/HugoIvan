@@ -36,21 +36,21 @@ urlpatterns = [
     url(r'^',include(UrlsMain,namespace="home")),
     url(r'^tienda/', include(tiendaUrls, namespace="tienda")),
     url(r'^cart/', include(cartUrls, namespace="cart")),
-    url(r'^accounts/', include(accUrls)),
+    url(r'^accounts/', include(accUrls, namespace="accounts")),
     url(
             regex=r'^media/(?P<path>.*)$',
             view=serve,
             kwargs ={'document_root':settings.MEDIA_ROOT}
         ),
 
-url(r'^orders/', include(orderUrls, namespace="orders")),
+    url(r'^orders/', include(orderUrls, namespace="orders")),
     url(r'^paypal/', include(paypalUrls)),
     url(r'^payment/', include(paymentUrls,namespace='payment')),
 
     # Python Social Auth URLs
     url('', include('social.apps.django_app.urls', namespace='social')),
     # Home URL
-    url(r'^$', TemplateView.as_view(template_name="home.html"), name="home"),
+    #url(r'^$', TemplateView.as_view(template_name="home.html"), name="home"),
     # Logout URL
     url(
         r'^users/logout/$',

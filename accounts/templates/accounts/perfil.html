@@ -1,28 +1,17 @@
 {%extends 'base.html'%}
-
-{%block estilos%}
-.fotito{
-	border:2px solid white;
-	border-radius:50%;
-	width:100px;
-	height:100px;
-}
-body{
-	background:grey;
-}
-{%endblock estilos%}
-
 {%block content%}
+<div id="wrapper" class="center">
+	
+
 	<h1>Bienvenido a tu perfil {{request.user.username}}</h1>
-	<a href="{%url 'logout'%}">
-	<button>Cerrar tu sesión</button>
-	</a>
-<form action="." method="post" enctype='multipart/form-data'>
-	{%csrf_token%}
-	{{userform.as_p}}
-	{{profileform.as_p}}
-	<input style="background:red;padding:10px;" type="submit" value="Guardar">
-</form>
+	<form action="." method="post" enctype='multipart/form-data' class="formulario_user_register ">
+		{%csrf_token%}
+		{{userform.as_p}}
+		{{profileform.as_p}}
+		<input type="submit" value="Guardar">
+	</form>
+	<a href="{%url 'logout'%}"><button>Cerrar tu sesión</button></a>
+</div>
 
 {%endblock content%}
 

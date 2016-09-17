@@ -17,6 +17,12 @@ h1, h2, h3, h4, h5, th, td, ul, p {
     padding-top: 1%;
 }
 
+.formulario_user_register {
+    padding: 5%;
+    padding-top: 1%;
+  
+}
+
 #wrapper {
     margin: 0px auto 0px auto;
     width: 1000px;

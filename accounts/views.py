@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import Profile
@@ -17,6 +18,7 @@ class Dashboard(View):
 		'profileform':profileform,
 		}
 		return render(request,template_name,context)
+		
 	def post(self,request):
 		template_name="accounts/perfil.html"
 		userform = UserEditForm(instance=request.user,data=request.POST)
@@ -53,6 +55,7 @@ class Registration(View):
 			perfil = Profile()
 			perfil.user = new_user
 			perfil.save()
+			# perfil = Profile.objects.create(user=new_user)
 			return redirect('profile')
 		else:
 			context = {
